@@ -34,7 +34,7 @@ footer{text-align:center;color:#6b7586;padding:46px 16px 70px;font-size:.85rem}
 #top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:52px;height:52px;line-height:52px;text-align:center;text-decoration:none;border-radius:50%;background:var(--acc);color:#111;font-size:1.4rem;font-weight:700;opacity:0;pointer-events:none;transition:opacity .3s;z-index:60}
 #top.show{opacity:1;pointer-events:auto}
 </style></head><body>
-<nav><b>舒心闖關</b><div><a href="#plans">方案</a><a href="#about">服務</a><a class="cta" href="#contact">下單</a></div></nav>
+<nav><b>舒心闖關</b><div><a href="#plans">方案</a><a href="#about">服務</a><a class="cta" href="https://b23.tv/JTWeMda" target="_blank" rel="noopener">聯繫這個主播</a></div></nav>
 
 <div class="hero" id="home">
 <img src="banner.jpg" alt="儒夫救星 專門拯救儒夫">
@@ -52,18 +52,19 @@ footer{text-align:center;color:#6b7586;padding:46px 16px 70px;font-size:.85rem}
 <div class="plans">
 <div class="plan"><small>機密</small><h3>機密 時薪</h3><div class="p">¥25<i> / 小時</i></div></div>
 <div class="plan hot"><small>絕密</small><h3>絕密 時薪</h3><div class="p">¥40<i> / 小時</i></div></div>
-<div class="plan"><small>套餐</small><h3>2 小時</h3><div class="p">¥45<i> / 2 小時</i></div></div>
-<div class="plan"><small>套餐</small><h3>3 小時</h3><div class="p">¥60<i> / 3 小時</i></div></div>
-<div class="plan hot"><small>套餐</small><h3>2 小時</h3><div class="p">¥70<i> / 2 小時</i></div></div>
-<div class="plan hot"><small>套餐</small><h3>3 小時</h3><div class="p">¥100<i> / 3 小時</i></div></div>
+<div class="plan"><small>機密</small><h3>機密 2 小時</h3><div class="p">¥45<i> / 2 小時</i></div></div>
+<div class="plan"><small>機密</small><h3>機密 3 小時</h3><div class="p">¥60<i> / 3 小時</i></div></div>
+<div class="plan hot"><small>絕密</small><h3>絕密 2 小時</h3><div class="p">¥70<i> / 2 小時</i></div></div>
+<div class="plan hot"><small>絕密</small><h3>絕密 3 小時</h3><div class="p">¥100<i> / 3 小時</i></div></div>
+<div class="plan"><small>趣味單</small><h3>承接趣味單</h3><div class="p" style="font-size:1.3rem">需要的詳談</div></div>
 </div>
 <p class="note" style="margin-top:16px">價格區間 ¥25 至 ¥100。如服務包含額外費用，請與陪玩先溝通後再交易。</p></section>
 
-<section class="s reveal" id="contact"><h2>如何下單</h2>
-<p>下單前請先私訊確認時段與玩法，確認後再付款。</p>
-<p><a class="btn" href="#home">回到方案</a></p></section>
+<section class="s reveal" id="contact"><h2>聯繫這個主播</h2>
+<p>想約陪玩或趣味單，先到主播的嗶哩嗶哩個人空間私訊，確認時段與玩法後再交易。</p>
+<p><a class="btn" href="https://b23.tv/JTWeMda" target="_blank" rel="noopener">聯繫這個主播</a></p></section>
 
-<footer>© 舒心闖關 · 三角洲行動陪玩 · v1.0</footer>
+<footer>© 舒心闖關 · 三角洲行動陪玩 · v1.1</footer>
 <a id="top" href="#home" aria-label="回到頂部">↑</a>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;const d=t.classList.contains('plan')?[...t.parentNode.children].indexOf(t)*120:0;setTimeout(()=>t.classList.add('show'),d);io.unobserve(t)}}),{threshold:.12});
