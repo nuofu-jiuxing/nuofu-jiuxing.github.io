@@ -7,7 +7,7 @@
 body{margin:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:rgba(14,17,22,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav b{color:var(--acc)}nav div a{margin-left:14px;color:var(--tx);text-decoration:none;font-size:.95rem}
-nav .cta{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#111;padding:6px 14px;border-radius:6px;font-weight:700}
+nav .cta{white-space:nowrap;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#111;padding:6px 14px;border-radius:6px;font-weight:700}
 .hero{padding:90px 16px 40px;text-align:center;background:radial-gradient(circle at 50% 0,#2b2310,var(--bg) 70%)}
 .hero img{max-width:880px;width:100%;border-radius:12px;border:1px solid var(--line);animation:drop 1s ease both}
 .hero h1{font-size:clamp(1.8rem,6vw,3rem);margin:24px 0 6px;animation:drop 1s .15s ease both}
@@ -45,10 +45,11 @@ footer{text-align:center;color:#6b7586;padding:46px 16px 70px;font-size:.85rem}
 .extras span{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px}
 .extras b{color:var(--acc)}
 .badge{display:inline-block;background:#123d22;color:#5be38a;border-radius:20px;padding:4px 12px;font-size:.9rem;margin-top:12px}
-@media(max-width:600px){nav div{overflow-x:auto;white-space:nowrap;max-width:72vw}nav div a{margin-left:10px;font-size:.85rem}}
+@media(max-width:600px){nav div{overflow-x:auto;overflow-y:hidden;white-space:nowrap;max-width:72vw}nav div a{margin-left:10px;font-size:.85rem}}
 .sub{color:var(--acc);font-size:1.1rem;margin:26px 0 10px;border-left:4px solid var(--acc2);padding-left:10px}
+[id]{scroll-margin-top:64px}
 </style></head><body>
-<nav><b>舒心闯关</b><div><a href="#plans">护航</a><a href="#boost">代肝</a><a href="#about">服务</a><a href="#legend">传说</a><a class="cta" href="https://b23.tv/JTWeMda" target="_blank" rel="noopener">联系这个主播</a></div></nav>
+<nav><b>舒心闯关</b><div><a href="#about">服务</a><a href="#escort">护航</a><a href="#boost">代肝</a><a href="#legend">传说</a><a class="cta" href="https://b23.tv/JTWeMda" target="_blank" rel="noopener">联系这个主播</a></div></nav>
 
 <div class="hero" id="home">
 <img src="banner.jpg" alt="懦夫救星 专门拯救懦夫">
@@ -77,7 +78,7 @@ footer{text-align:center;color:#6b7586;padding:46px 16px 70px;font-size:.85rem}
 <div class="plan"><small>现在就能打</small><h3>🧠 天才老太｜德穆兰·超级总监徽章</h3><div class="p">¥188</div>
 <ul class="f"><li>航天/AZ3地图，完成单局12杀，解锁【天才老太】徽章+专属动作皮肤</li><li>卧龙亲自手打，全程直播，没解锁免费补打</li><li>仅该徽章成就，不含其他赛季任务</li></ul></div>
 </div>
-<h3 class="sub">⏱️ 时长护航（机密/绝密，按时长计费）</h3>
+<h3 class="sub" id="escort">⏱️ 时长护航（机密/绝密，按时长计费）</h3>
 <p>卧龙全程陪你打机密/绝密，按实际时长计费。你只管跟着走，路线、架点、撤离都帮你安排明白，不压力、不甩锅。</p>
 <div class="plans">
 <div class="plan"><small>机密</small><h3>机密 按小时</h3><div class="p">¥25<i> / 小时</i></div></div>
@@ -128,7 +129,7 @@ footer{text-align:center;color:#6b7586;padding:46px 16px 70px;font-size:.85rem}
 <p>卡在机密、倒在绝密的时候，耳机里会传来那句带着河南口音的：“中！别怕，有我在。”</p>
 </div></section>
 
-<footer>© 舒心闯关 · 三角洲行动陪玩 · v2.12</footer>
+<footer>© 舒心闯关 · 三角洲行动陪玩 · v2.13</footer>
 <a id="top" href="#home" aria-label="回到顶部">↑</a>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;const d=t.classList.contains('plan')?[...t.parentNode.children].indexOf(t)*120:0;setTimeout(()=>t.classList.add('show'),d);io.unobserve(t)}}),{threshold:.12});
@@ -136,5 +137,6 @@ document.querySelectorAll('.reveal,.plan').forEach(el=>io.observe(el));
 const tb=document.getElementById('top');
 function chk(){const y=window.pageYOffset||document.documentElement.scrollTop||0;tb.classList.toggle('show',y>300)}
 addEventListener('scroll',chk,{passive:true});addEventListener('touchmove',chk,{passive:true});setInterval(chk,500);chk();
+document.querySelectorAll('nav div a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();const r=t.closest('.reveal');if(r)r.classList.add('show');let y=0,n=t;while(n){y+=n.offsetTop;n=n.offsetParent}scrollTo({top:y-document.querySelector('nav').offsetHeight-12,behavior:'smooth'});history.replaceState(null,'',a.getAttribute('href'))}));
 tb.addEventListener('click',e=>{e.preventDefault();scrollTo({top:0,behavior:'smooth'})});
 </script></body></html>
